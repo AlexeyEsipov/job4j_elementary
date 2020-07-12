@@ -8,23 +8,19 @@ public class PointTest {
 
     @Test
     public void whenX1Y1ZeroX2ThreeY2Four() {
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 3;
-        int y2 = 4;
+        Point a = new Point(0, 0);
+        Point b = new Point(3, 4);
         double expected = 5.0;
-        double out = Point.distance(0, 0, 3, 4);
+        double out = a.distance(b);
         assertEquals(expected, out, 0.01);
     }
 
     @Test
     public void whenX1Y1ZeroX2FourY2Three() {
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 4;
-        int y2 = 3;
+        Point a = new Point(0, 0);
+        Point b = new Point(4, 3);
         double expected = 5.0;
-        double out = Point.distance(0, 0, 3, 4);
+        double out = a.distance(b);
         assertEquals(expected, out, 0.01);
     }
 }
