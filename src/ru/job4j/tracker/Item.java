@@ -2,8 +2,8 @@ package ru.job4j.tracker;
 
 public class Item {
 
-    String id;
-    String name;
+    private String id;
+    private String name;
 
     public Item() {
     }
