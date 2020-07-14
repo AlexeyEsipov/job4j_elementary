@@ -14,37 +14,41 @@ public class Tracker {
     }
 
     public Item findById(int id) {
-        int index = indexOf(id);
-        return index != -1 ? items[index] : null;
+        int i = indexOf(id);
+        return i != -1 ? items[i] : null;
     }
 
-    public Item[] findAll(){
+    public Item[] findAll() {
         Item[] result = new Item[items.length];
         int j = 0;
-        for (int i = 0; i < size ; i++) {
-            if (items[i].getId() != 0) {
-                result[j++] = items[i];
+        for (int i = 0; i < size; i++) {
+            if (items[i] != null) {
+                if (items[i].getId() != 0) {
+                    result[j++] = items[i];
+                }
             }
         }
         return Arrays.copyOf(result, j);
     }
 
     public Item[] findByName(String key) {
-        Item[] result = new Item[items.length];
+        Item[] result = new Item[size];
         int j = 0;
-        for (int i = 0; i < size ; i++) {
-            if (items[i].getName().equals(key)) {
-                result[j++] = items[i];
+        for (int i = 0; i < size; i++) {
+            if (items[i] != null) {
+                if (items[i].getName().equals(key)) {
+                    result[j++] = items[i];
+                }
             }
         }
         return Arrays.copyOf(result, j);
     }
 
     public boolean replace(int id, Item item) {
-        int index = indexOf(id);
-        if (index != -1) {
+        int i = indexOf(id);
+        if (i != -1) {
             item.setId(id);
-            items[index] = item;
+            items[i] = item;
             return true;
         } else {
             return false;
@@ -53,13 +57,26 @@ public class Tracker {
 
     private int indexOf(int id) {
         int result = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
-                result = index;
-                break;
+        for (int i = 0; i < size; i++) {
+            if (items[i] != null) {
+                if (items[i].getId() == id) {
+                    result = i;
+                    break;
+                }
             }
         }
         return result;
     }
 
+    public boolean delete(int id) {
+        int i = indexOf(id);
+        if (i != -1) {
+            items[i] = null;
+            System.arraycopy(items, i + 1, items, i, size - i);
+            items[size - 1] = null;
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
