@@ -61,8 +61,8 @@ public class Tracker {
             items[i] = null;
             System.arraycopy(items, i + 1, items, i, size - i);
             items[size - 1] = null;
+            size--;
         }
-        size--;
         return result;
     }
 }
