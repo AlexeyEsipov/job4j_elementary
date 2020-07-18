@@ -15,7 +15,7 @@ public class Matches {
         boolean player = true;
         System.out.println(RULEGAME);
         System.out.println(BEGINGAME);
-        while (true) {
+        while (numberOfMatches > 0) {
             String name = player ? "игрок А " : " игрок В ";
             System.out.print(name + STEP);
             Scanner sc = new Scanner(System.in);
