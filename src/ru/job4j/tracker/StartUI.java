@@ -23,9 +23,7 @@ public class StartUI {
             } else if (select == 2) {
                 System.out.println("=== Edit item ====");
                 int selectId = input.askInt("Enter ID: ");
-                Item selectItem = tracker.findById(selectId);
                 Item editItem = new Item();
-                System.out.println("Item: ID: " + selectItem.getId() + ", Name: " + selectItem.getName());
                 editItem.setName(input.askStr("Enter new Name:"));
                 if (tracker.replace(selectId, editItem)) {
                     System.out.println("Объект успешно изменен");
@@ -35,8 +33,6 @@ public class StartUI {
             } else if (select == 3) {
                 System.out.println("=== Delete item ====");
                 int selectId = input.askInt("Enter ID: ");
-                Item selectItem = tracker.findById(selectId);
-                System.out.println("Item: ID: " + selectItem.getId() + ", Name: " + selectItem.getName());
                 int confirmDelete = input.askInt("Delete this item? Select 1 for delete  or Select 2 to skip");
                 if (confirmDelete == 1) {
                     if (tracker.delete(selectId)) {
