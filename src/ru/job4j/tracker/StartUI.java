@@ -18,7 +18,7 @@ public class StartUI {
         }
     }
 
-    public static void editItem(Input input, Tracker tracker) {
+    public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ====");
         int selectId = input.askInt("Enter ID: ");
         Item editItem = new Item();
@@ -33,13 +33,10 @@ public class StartUI {
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
         int selectId = input.askInt("Enter ID: ");
-        int confirmDelete = input.askInt("Delete this item? Select 1 for delete  or Select 2 to skip");
-        if (confirmDelete == 1) {
-            if (tracker.delete(selectId)) {
-                System.out.println("Item was deleted successfully");
-            } else {
-                System.out.println("Объект не удален");
-            }
+        if (tracker.delete(selectId)) {
+            System.out.println("Item was deleted successfully");
+        } else {
+            System.out.println("Объект не удален");
         }
     }
 
@@ -77,7 +74,7 @@ public class StartUI {
             } else if (select == 1) {
                 StartUI.showAllItem(tracker);
             } else if (select == 2) {
-                StartUI.editItem(input, tracker);
+                StartUI.replaceItem(input, tracker);
             } else if (select == 3) {
                 StartUI.deleteItem(input, tracker);
             } else if (select == 4) {
