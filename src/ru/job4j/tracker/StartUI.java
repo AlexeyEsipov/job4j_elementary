@@ -58,16 +58,25 @@ public class StartUI {
                 System.out.println("=== Find item by Id ====");
                 System.out.print("Enter ID: ");
                 int selectId = Integer.parseInt(scanner.nextLine());
-                Item selectItem = tracker.findById(selectId);
-                System.out.println("Item: ID: " + selectItem.getId() + ", Name: " + selectItem.getName());
+                if (tracker.findById(selectId) != null) {
+                    Item selectItem = tracker.findById(selectId);
+                    System.out.println("Item: ID: " + selectItem.getId() + ", Name: " + selectItem.getName());
+                } else {
+                    System.out.println("Обект с требуемым ID не найден");
+                }
             } else if (select == 5) {
                 System.out.println("=== Find items by name ====");
                 System.out.print("Enter name: ");
                 String keyName = scanner.nextLine();
                 Item[] allItem = tracker.findByName(keyName);
-                for (Item el: allItem) {
-                    System.out.println("Item: ID: " + el.getId() + ", Name: " + el.getName());
+                if (allItem.length != 0) {
+                    for (Item el: allItem) {
+                        System.out.println("Item: ID: " + el.getId() + ", Name: " + el.getName());
+                    }
+                } else {
+                    System.out.println("Объекты с требуемым именем не найдены");
                 }
+
             } else if (select == 6) {
                 run = false;
             }
