@@ -34,9 +34,9 @@ public class StartUITest {
         Item item = new Item("new item"); //2.Создаем объект item.
         tracker.add(item);//3. Добавляем item в tracker. После этой операции у нас есть id.
         int deleteId = item.getId();//4. Достаем item.id
-        String[] answers = {String.valueOf(item.getId()), "Item was deleted successfully"};//4а. и создаем массив с ответами пользователя.
+        String[] answers = {String.valueOf(item.getId())};//4а. и создаем массив с ответами пользователя.
         StartUI.deleteItem(new StubInput(answers), tracker); //5. Удаляем объект с заданным в StubInput(answers) ID
         Item deleted = tracker.findById(deleteId); //6. Ищем по ID, найти не должны
-        assertThat(deleted, is("Item was deleted successfully"));// ???? как проверить результат на null?
+        assertNull(deleted);// проверяем результат на null
     }
 }
