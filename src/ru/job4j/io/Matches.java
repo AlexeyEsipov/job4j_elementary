@@ -20,7 +20,7 @@ public class Matches {
             System.out.print(name + STEP);
             Scanner sc = new Scanner(System.in);
             int step = sc.nextInt();
-            while (step < 1 || step > 3 || step > numberOfMatches){
+            while (step < 1 || step > 3 || step > numberOfMatches) {
                 step = sc.nextInt();
             }
             numberOfMatches -= step;

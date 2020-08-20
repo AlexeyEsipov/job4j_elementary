@@ -9,9 +9,9 @@ public class College {
         student.setSecondName("Alexey");
         student.setSurName("Mikhailovich");
         student.setGrope("intern");
-        System.out.println(student.getFirstName() + " " + student.getSecondName() +
-                " " + student.getSurName() + " " + student.getGrope() + " " +
-                " " + student.getDateOfAdmission());
+        System.out.println(student.getFirstName() + " " + student.getSecondName()
+                + " " + student.getSurName() + " " + student.getGrope() + " "
+                + " " + student.getDateOfAdmission());
     }
 
 }

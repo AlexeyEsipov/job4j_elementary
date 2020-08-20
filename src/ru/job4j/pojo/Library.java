@@ -4,8 +4,8 @@ public class Library {
 
     public void printLibrary(Book[] books) {
         for (int i = 0; i < books.length; i++) {
-            System.out.println("Book " + (i+1) + " " + books[i].getName() + " " +
-                    books[i].getPages() + " pages");
+            System.out.println("Book " + (i + 1) + " " + books[i].getName() + " "
+                    + books[i].getPages() + " pages");
         }
     }
 
@@ -35,8 +35,8 @@ public class Library {
         library.printLibrary(libr);
         for (int i = 0; i < libr.length; i++) {
             if (libr[i].getName().equals("Clean Code")) {
-                System.out.println("Book " + (i + 1) + " " + libr[i].getName() + " " +
-                        libr[i].getPages() + " pages");
+                System.out.println("Book " + (i + 1) + " " + libr[i].getName() + " "
+                        + libr[i].getPages() + " pages");
             }
         }
     }
