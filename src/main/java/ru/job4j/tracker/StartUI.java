@@ -21,7 +21,7 @@ public class StartUI {
                 Item[] items = tracker.findAll();
                 if (items.length > 0) {
                     for (Item item : items) {
-                        System.out.println("Item: ID: " + item.getId() + ", Name: " + item.getName());
+                        System.out.println(item);
                     }
                 } else {
                     System.out.println("Хранилище еще не содержит заявок");
@@ -52,7 +52,7 @@ public class StartUI {
                 int selectId = input.askInt("Enter ID: ");
                 Item item = tracker.findById(selectId);
                 if (item != null) {
-                    System.out.println("Item: ID: " + item.getId() + ", Name: " + item.getName());
+                    System.out.println(item);
                 } else {
                     System.out.println("Объект с требуемым ID не найден");
                 }
@@ -60,10 +60,10 @@ public class StartUI {
             } else if (select == 5) {
                 System.out.println("=== Find items by name ====");
                 String keyName = input.askStr("Enter name: ");
-                Item[] allItem = tracker.findByName(keyName);
-                if (allItem.length != 0) {
-                    for (Item el: allItem) {
-                        System.out.println("Item: ID: " + el.getId() + ", Name: " + el.getName());
+                Item[] items = tracker.findByName(keyName);
+                if (items.length > 0) {
+                    for (Item item: items) {
+                        System.out.println(item);
                     }
                 } else {
                     System.out.println("Объекты с требуемым именем не найдены");
